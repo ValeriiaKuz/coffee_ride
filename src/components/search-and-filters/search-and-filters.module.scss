@@ -1,0 +1,99 @@
+.contentWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: calc(var(--index) * 1);
+  form{
+    width: calc(var(--index)*25);
+    height: calc(var(--index)*1.8);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--index)*1.4);
+    border-radius: 40px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fdf8f8;
+    transition: all 0.3s ease;
+    &.focus {
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+.searchInput{
+  width: calc(var(--index)*20);
+  background: none;
+  color: #5a6674;
+  border: none;
+  appearance: none;
+  outline: none;
+  font-size: 18px;
+}
+.searchInput::placeholder{
+  color: rgba(90, 102, 116, 0.5);
+}
+.searchButton{
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  padding-left: calc(var(--index)*.8);;
+}
+.filters{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap:calc(var(--index)*1);
+  button{
+    background: #fdf8f8;
+    padding: 8px 12px;
+    border: 2px solid  transparent;
+    width:calc(var(--index)*5);
+    height:calc(var(--index)*2) ;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    &:hover{
+      border: 2px solid #ffcfcf;
+    }
+  }
+  img{
+    margin-left: 10px;
+  }
+}
+.filterItems,.sortItems{
+  position: absolute;
+  top:calc(var(--index)*2.2);
+  z-index: 3;
+  width:calc(var(--index)*5);
+  display: flex;
+  flex-direction: column;
+  background: #fdf8f8;
+  font-size: 12px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  span{
+    cursor: pointer;
+    padding: 8px 16px;
+    &.active:hover{
+      background-color: rgba(250, 128, 114, 0.5);
+    }
+    &:hover{
+      background-color: rgba(250, 128, 114, 0.1);
+    }
+  }
+}
+.sortItems{
+  right: 0;
+}
+.filterItems{
+  left: calc(var(--index)*6);
+}
+.active{
+  background-color: rgba(250, 128, 114, 0.5);
+}
+.mapWrapper{
+  width: calc(var(--index)*25);
+  height:calc(var(--index)*25) ;
+}

@@ -1,0 +1,21 @@
+.itemWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap:10vw;
+  max-width: 1140px;
+  margin: 10vh auto;
+}
+.sliderWrapper{
+  flex:1;
+    width: 30vw;
+    height: 30vh;
+  }
+.infoWrapper{
+  flex: 1;
+  h3{
+    font-size: calc(var(--index)*2);
+  }
+
+}
+

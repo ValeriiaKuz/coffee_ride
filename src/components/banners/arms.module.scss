@@ -1,0 +1,16 @@
+.bannerWrapper{
+  position: relative;
+  display: flex;
+justify-content: center;
+  width: 100%;
+}
+.leftArm{
+  position: absolute;
+  left: -10px;
+  z-index: 1;
+}
+.rightArm{
+  position: absolute;
+  right: -50px;
+  z-index: 1;
+}

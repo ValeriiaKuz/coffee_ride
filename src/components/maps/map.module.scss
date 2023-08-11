@@ -1,0 +1,28 @@
+.container{
+  width: 100%;
+  height: 100%
+};
+.info{
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--index)*0.3);
+  .cafeName,.cafeAddress{
+    font-size: 14px
+  }
+  .cafeName{
+    font-size: 16px
+  }
+  .cafeAddress{
+    color: rgba(0, 0, 0, 0.7);
+  }
+  a{
+    text-align: end;
+    color: var(--accent-color);
+    font-size: 16px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+

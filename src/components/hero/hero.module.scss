@@ -1,0 +1,42 @@
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("../../images/bg.png") no-repeat center center;
+  background-size: cover;
+  color: white;
+  z-index: 50;
+  h1{
+    font-size: 5rem;
+    font-weight: 500;
+    z-index: 2;
+    span{
+      color: var(--accent-color);
+      font-size: 7rem;
+    }
+  }
+  p{
+    z-index: 2;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0;
+  }
+}
+.bgBlur{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

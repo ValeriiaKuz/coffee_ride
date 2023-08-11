@@ -1,0 +1,11 @@
+<svg width="101" height="100" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG Editor - http://github.com/mzalive/SVG Editor/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fddada" id="canvas_background" height="102" width="103" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text transform="rotate(33 50.5156 45.4453)" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="15" id="svg_2" y="49.4375" x="-8" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#fee6e6">coffee points</text>
+ </g>
+</svg>

@@ -1,0 +1,26 @@
+.coffeePoints{
+  background-color: #fbf4f4;
+  min-height: 100vh;
+}
+.contentWrapper{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: var(--header-height);
+  padding-bottom: var(--index);
+  h1 {
+    margin-bottom: calc(var(--index)*2);
+    color: #10297d;
+    font-size: 18px;
+
+    span{
+      text-transform: uppercase;
+      font-size: 38px;
+    }
+  }
+}
+.cardsWrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:calc(var(--index)*1.5);
+}

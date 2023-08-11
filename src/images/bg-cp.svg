@@ -1,0 +1,36 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="#E91E4D33" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_22" y="22.4375" x="-2.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_23" y="47.4375" x="-30.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_24" y="22.4375" x="-2.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_25" y="70.4375" x="-56.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_26" y="69.4375" x="539.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_27" y="94.4375" x="-13.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_28" y="117.4375" x="27.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text transform="translate(-450 9)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_29" y="109.4375" x="-122.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_30" y="165.4375" x="-28.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_31" y="140.4375" x="-0.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_32" y="188.4375" x="-54.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_33" y="212.4375" x="-11.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_34" y="235.4375" x="29.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_35" y="258.4375" x="-78.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_36" y="282.4375" x="-35.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_37" y="305.4375" x="5.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text transform="translate(541 1)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_38" y="188.4375" x="0" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_39" y="258.4375" x="520.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_41" y="328.4375" x="-16.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_42" y="351.4375" x="24.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_43" y="374.4375" x="-3.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text transform="translate(-253 11)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_44" y="224.4375" x="-313.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_45" y="397.4375" x="24.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+  <text transform="translate(-481 7)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="24" id="svg_46" y="344.4375" x="-88.5" stroke-width="0" fill="#fee6e6">coffee points coffee points coffee points</text>
+ </g>
+</svg>

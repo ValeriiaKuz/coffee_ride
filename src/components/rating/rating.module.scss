@@ -1,0 +1,20 @@
+.rating{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  color: rgba(16, 41, 125, 0.5);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap:3px;
+    & div{
+      font-size: 32px;
+    }
+    span{
+    font-size: calc(var(--index)*0.8);
+      color: #0a153a;
+    }
+  }
+}

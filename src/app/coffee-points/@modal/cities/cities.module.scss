@@ -1,0 +1,41 @@
+.content{
+  color: #fee6e6;
+  max-width: var(--max-width);
+  max-height: 70vh;
+  width: calc(var(--index)*30);
+  height:  calc(var(--index)*25);
+  margin: 0 auto;
+  padding: calc(var(--index)*3);
+  background-color: rgb(226, 67, 76);
+    li{
+      cursor: pointer;
+}
+  h1{
+    margin-bottom: var(--index);
+  }
+}
+.country{
+  font-size: 24px;
+  position: relative;
+  color: rgba(254, 230, 230, 0.8);
+}
+.country::before{
+  position: absolute;
+  content: '•';
+  color: #10297d;
+  top:50%;
+  transform: translate(0,-50%);
+  left:  calc(var(--index)*-0.7);
+
+}
+.cities{
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--index)*0.1);
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+   gap: calc(var(--index)*0.6); ;
+}

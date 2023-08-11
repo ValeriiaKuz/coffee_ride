@@ -1,0 +1,35 @@
+.mapWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("../../images/map.svg") no-repeat center;
+  background-size: cover;
+  background-position-y: -190px;
+  height: 100%;
+  width: 100%;
+.bg{
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2.5px);
+  height: 100%;
+  width: 100%;
+}
+  span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 0.8;
+    font-size: calc(var(--index) * 10);
+    background: url("../../images/map.svg") no-repeat center;
+    background-position-y: -190px;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}

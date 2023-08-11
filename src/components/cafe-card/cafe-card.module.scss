@@ -1,0 +1,63 @@
+.cafeCard {
+  max-width: calc(calc(1140px - calc(var(--index)*4.5))/4);
+
+  border-radius: 15px;
+  background-color: #fee6e6;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 6px 6px;
+
+  &:hover{
+    box-shadow: rgba(0, 0, 0, 0.17) 0 10px 20px, rgba(0, 0, 0, 0.20) 0 6px 6px;
+
+  }
+  span{
+    font-size: 10px;
+  }
+}
+.sliderWrapper{
+  position: relative;
+  width: calc(1140px/4 - calc(var(--index)*0.125) - calc(var(--index) * 1) );
+  height: calc(1140px/4 - calc(var(--index)*0.125) - calc(var(--index) * 1) );
+  border-radius: 10px 10px 0 0 ;
+}
+.share{
+  position: absolute;
+  top:15px;
+  right: 10px;
+  color: #ffffff;
+  font-size: 10px;
+  cursor: pointer;
+}
+.share::before{
+  content: "●";
+  color: #ffffff;
+  top: -10px;
+  position: absolute;
+}
+.share::after{
+  content: "●";
+  color: #ffffff;
+  top: 10px;
+  position: absolute;
+  right: 0;
+}
+
+.cafeInfo{
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  font-size: calc(var(--index)*1.1);
+  color: var(--accent-color);
+  padding: calc(var(--index)*0.5);
+  border-bottom: 1px solid rgba(16, 41, 125, 0.3);
+}
+.ratingWrapper{
+  padding:  calc(var(--index)*0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.fav{
+  cursor: pointer;
+}

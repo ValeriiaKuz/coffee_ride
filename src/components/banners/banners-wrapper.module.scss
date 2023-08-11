@@ -1,0 +1,14 @@
+.bannersWrapper{
+  width: 300vw;
+  height: 50vh;
+  overscroll-behavior: none;
+  display: flex;
+  flex-wrap: nowrap;
+  z-index: 20;
+}
+.firstBanner{
+  z-index: 2;
+}
+.panel{
+width: 100vw;
+}

@@ -1,0 +1,20 @@
+.stars{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap:calc(var(--index)*.15);
+  padding: calc(var(--index)*.3) calc(var(--index)*.6);
+}
+.button{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.on {
+  color: var(--accent-color);
+}
+.off {
+  color: #ccc;
+}
