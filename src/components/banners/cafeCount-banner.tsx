@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import style from "./cafeCount.module.scss";
 import classNames from "classnames";
 import { poppins600 } from "@/src/fonts/fonts";
+import cafe from "../../images/Group-cafe.png";
+import Image from "next/image";
 export const CafeCountBanner = () => {
   const [count, setCount] = useState(0);
   const countRef = useRef<HTMLDivElement | null>(null);
@@ -45,6 +47,7 @@ export const CafeCountBanner = () => {
 
   return (
     <div className={style.countWrapper} ref={countRef}>
+      <Image src={cafe} alt={"cafe"} style={{ objectFit: "contain" }} />
       <span className={style.points}>coffee points</span>
       <p className={classNames(style.count, poppins600.className)}>
         {count}

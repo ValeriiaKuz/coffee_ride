@@ -7,7 +7,7 @@ const initialState = {
   chosenCity: null,
 } as cityType;
 
-const citySlice = createSlice({
+const city = createSlice({
   name: "citySlice",
   initialState,
   reducers: {
@@ -17,5 +17,5 @@ const citySlice = createSlice({
   },
 });
 
-export const { setChosenCity } = citySlice.actions;
-export const cityReducer = citySlice.reducer;
+export const { setChosenCity } = city.actions;
+export const cityReducer = city.reducer;

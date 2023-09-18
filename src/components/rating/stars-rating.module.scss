@@ -1,7 +1,7 @@
 .stars{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: inherit;
   gap:calc(var(--index)*.15);
   padding: calc(var(--index)*.3) calc(var(--index)*.6);
 }
@@ -11,6 +11,9 @@
   outline: none;
   cursor: pointer;
   transition: ease 0.3s;
+  &.review{
+    cursor: auto;
+  }
 }
 .on {
   color: var(--accent-color);

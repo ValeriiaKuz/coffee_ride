@@ -8,6 +8,7 @@ import PointMap from "@/src/components/maps/point-map";
 import { ReviewForm } from "@/src/components/review-form/review-form";
 import fav from "../../../images/fav.svg";
 import Image from "next/image";
+import { Reviews } from "@/src/components/reviews/reviews";
 
 type CafeParamsType = {
   params: { slug: [city: string, cafeID: string] };
@@ -52,6 +53,7 @@ export default async function Cafe({ params }: CafeParamsType) {
             </div>
           </div>
           <ReviewForm />
+          <Reviews />
         </div>
         <div className={style.mapWrapper}>
           <PointMap

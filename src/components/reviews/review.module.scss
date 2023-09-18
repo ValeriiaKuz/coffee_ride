@@ -1,0 +1,18 @@
+.reviewWrapper{
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--index)*2);
+  border: 1px solid salmon;
+}
+.imagesWrapper{
+  display: flex;
+  flex-direction: row;
+  gap:calc(var(--index)*.5);
+  height:calc(var(--index)* 10) ;
+  width: inherit;
+  & .imageWrapper{
+    position: relative;
+    height: inherit;
+    width: calc(var(--index)* 10);
+  }
+}

@@ -1,9 +1,10 @@
 "use client";
 import style from "./stars-rating.module.scss";
-import { useState } from "react";
+import { FC, useState } from "react";
 import classNames from "classnames";
-export const StarsRating = () => {
-  const [rating, setRating] = useState(0);
+type StarsRatingProps = { ratingFromCustReview?: number };
+export const StarsRating: FC<StarsRatingProps> = ({ ratingFromCustReview }) => {
+  const [rating, setRating] = useState(ratingFromCustReview | 0);
   const [hover, setHover] = useState(0);
   return (
     <div className={style.stars}>
@@ -11,10 +12,12 @@ export const StarsRating = () => {
         index += 1;
         return (
           <button
+            disabled={!!ratingFromCustReview}
             type="button"
             key={index}
             className={classNames(
               style.button,
+              ratingFromCustReview && style.review,
               index <= (hover || rating) ? style.on : style.off,
             )}
             onClick={() => setRating(index)}

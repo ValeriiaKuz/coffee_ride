@@ -13,36 +13,44 @@ type cafeItemPropType = {
 export const CafeItem: FC<cafeItemPropType> = ({ cafe }) => {
   const left = useRef<HTMLDivElement | null>(null);
   const right = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      right.current,
-      { x: 50, opacity: 0.2 },
-      {
-        opacity: 1,
-        x: 0,
-        scrollTrigger: {
-          trigger: right.current,
-          scrub: 0.2,
+    ScrollTrigger.config({
+      limitCallbacks: true,
+      ignoreMobileResize: true,
+    });
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        right.current,
+        { x: 50, opacity: 0.2 },
+        {
+          opacity: 1,
+          x: 0,
+          scrollTrigger: {
+            trigger: right.current,
+            scrub: 0.2,
+          },
         },
-      },
-    );
-    gsap.fromTo(
-      left.current,
-      { x: -50, opacity: 0.5 },
-      {
-        opacity: 1,
-        x: 0,
-        scrollTrigger: {
-          trigger: left.current,
-          end: "top 10%",
-          scrub: 0.2,
+      );
+      gsap.fromTo(
+        left.current,
+        { x: -50, opacity: 0.5 },
+        {
+          opacity: 1,
+          x: 0,
+          scrollTrigger: {
+            trigger: left.current,
+            end: "top 10%",
+            scrub: 0.2,
+          },
         },
-      },
-    );
+      );
+    }, wrapperRef);
+    return () => ctx.revert();
   }, []);
   return (
-    <div className={style.itemWrapper}>
+    <div className={style.itemWrapper} ref={wrapperRef}>
       <>
         <div className={style.sliderWrapper} ref={left}>
           <ImageSlider imagePreviews={cafe.previews} />

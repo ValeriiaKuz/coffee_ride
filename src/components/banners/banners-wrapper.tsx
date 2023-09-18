@@ -14,20 +14,27 @@ export const BannersWrapper = () => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const sections = panelRefs.current;
-
-    gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: bannersWrapperRef.current,
-        start: "center center",
-        pin: true,
-        scrub: 0.6,
-        snap: 1 / (sections.length - 1),
-        end: () => `+=${window.innerHeight * sections.length}`,
-      },
+    ScrollTrigger.config({
+      limitCallbacks: true,
+      ignoreMobileResize: true,
     });
+    const ctx = gsap.context(() => {
+      const sections = panelRefs.current;
+
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: bannersWrapperRef.current,
+          start: "center center",
+          pin: true,
+          scrub: 0.6,
+          snap: 1 / (sections.length - 1),
+          end: () => `+=${window.innerHeight * sections.length}`,
+        },
+      });
+    }, bannersWrapperRef);
+    return () => ctx.revert();
   }, []);
 
   return (

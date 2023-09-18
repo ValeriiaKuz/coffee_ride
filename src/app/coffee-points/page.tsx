@@ -8,7 +8,7 @@ import CafeCard from "@/src/components/cafe-card/cafe-card";
 import { poppins600 } from "@/src/fonts/fonts";
 import { SearchAndFilters } from "@/src/components/search-and-filters/search-and-filters";
 import { getCookie } from "cookies-next";
-import { setChosenCity } from "@/src/servicies/redux/slices/citySlice";
+import { setChosenCity } from "@/src/servicies/redux/slices/city";
 import {
   CoffeePointType,
   setCoffeePoints,
