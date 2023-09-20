@@ -4,16 +4,18 @@ import { CoffeePointType } from "@/src/servicies/redux/slices/coffeepoints";
 import style from "./point.module.scss";
 import { ImageGallery } from "@/src/components/Image-gallery/image-gallery";
 import { Rating } from "@/src/components/rating/rating";
-import PointMap from "@/src/components/maps/point-map";
+// import PointMap from "@/src/components/maps/point-map";
 import { ReviewForm } from "@/src/components/review-form/review-form";
 import fav from "../../../images/fav.svg";
 import Image from "next/image";
 import { Reviews } from "@/src/components/reviews/reviews";
+import dynamic from "next/dynamic";
 
 type CafeParamsType = {
   params: { slug: [city: string, cafeID: string] };
 };
 export default async function Cafe({ params }: CafeParamsType) {
+  const PointMap = dynamic(() => import("@/src/components/maps/point-map"));
   const cafeInfoData = await getDoc(doc(db, params.slug[0], params.slug[1]));
   const cafeInfo: CoffeePointType = cafeInfoData.data() as CoffeePointType;
   return (
