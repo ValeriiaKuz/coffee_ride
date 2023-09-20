@@ -1,12 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { signInWithCustomToken, User } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { auth } from "@/src/firebase/firebase";
 import { getCookie } from "cookies-next";
 
-const withAuth = (Component) => {
-  const AuthenticatedComponent = (props) => {
+const withAuth = (Component: React.ComponentType): React.FC => {
+  const AuthenticatedComponent = (props: any) => {
     const [user, setUser] = useState<User | null>(null);
     const router = useRouter();
     useEffect(() => {

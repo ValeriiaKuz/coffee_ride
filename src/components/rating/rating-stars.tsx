@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import classNames from "classnames";
 type StarsRatingProps = { ratingFromCustReview?: number };
 export const StarsRating: FC<StarsRatingProps> = ({ ratingFromCustReview }) => {
-  const [rating, setRating] = useState(ratingFromCustReview | 0);
+  const [rating, setRating] = useState(ratingFromCustReview || 0);
   const [hover, setHover] = useState(0);
   return (
     <div className={style.stars}>

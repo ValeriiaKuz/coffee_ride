@@ -20,7 +20,7 @@ export const Review: FC<ReviewPropType> = ({ review }) => {
     <div className={style.reviewWrapper}>
       <p>{review.text}</p>
       <StarsRating ratingFromCustReview={review.rating} />
-      {review.images?.length > 0 && (
+      {review.images && review.images.length > 0 && (
         <div className={style.imagesWrapper}>
           {review.images?.map((i, index) => {
             return (

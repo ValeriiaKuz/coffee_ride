@@ -25,7 +25,9 @@ export default function SignUp() {
             displayName: name,
           })
             .then(async () => {
-              dispatch(setUser(auth.currentUser));
+              if (auth.currentUser) {
+                dispatch(setUser(auth.currentUser));
+              }
               setCookie("accessToken", await user.getIdToken());
               setCookie("refreshToken", user.refreshToken);
               router.push("/profile");

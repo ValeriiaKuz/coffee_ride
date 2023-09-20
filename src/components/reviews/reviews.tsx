@@ -3,21 +3,23 @@ import { collection, getDocs } from "@firebase/firestore";
 import { db } from "@/src/firebase/firebase";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Review } from "@/src/components/reviews/review";
+import { Review, TReview } from "@/src/components/reviews/review";
 
 export const Reviews = () => {
   const pathname = usePathname();
   const [, , city, id] = pathname.split("/");
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState<TReview[]>([]);
 
   useEffect(() => {
-    const fetchData = async (cityCol, idCol) => {
+    const fetchData = async (cityCol: string, idCol: string) => {
       try {
         const reviewsData = await getDocs(
           collection(db, cityCol, idCol, "reviews"),
         );
 
-        const reviews = reviewsData.docs.map((review) => review.data());
+        const reviews = reviewsData.docs.map((review) =>
+          review.data(),
+        ) as TReview[];
         setReviews(reviews);
       } catch (error) {
         console.log(error);
@@ -29,7 +31,7 @@ export const Reviews = () => {
   return (
     <div>
       {reviews.map((review, index) => {
-        return <Review key={review.id | index} review={review} />;
+        return <Review key={review.id || index} review={review} />;
       })}
     </div>
   );

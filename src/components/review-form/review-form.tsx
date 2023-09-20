@@ -24,7 +24,7 @@ export const ReviewForm = () => {
     }
     e.target.value = "";
   };
-  const onHandleDeletePreview = (file) => {
+  const onHandleDeletePreview = (file: File) => {
     setFiles((prev) => prev.filter((prevFile) => prevFile !== file));
   };
   const onHandleSubmit = (e: FormEvent) => {
