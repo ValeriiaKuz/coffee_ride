@@ -20,8 +20,8 @@ export default function Cities() {
     };
   }
   const countries: Country[] = [
-    { Japan: { cities: ["Tokyo", "Yokohama", "Osaka"] } },
-    { Korea: { cities: ["Seoul", "Busan"] } },
+    // { Japan: { cities: ["Tokyo", "Yokohama", "Osaka"] } },
+    // { Korea: { cities: ["Seoul", "Busan"] } },
     { Thailand: { cities: ["Bangkok", "Phuket"] } },
   ];
   const {
@@ -42,7 +42,7 @@ export default function Cities() {
                 <h4 className={style.country}>{countryName}</h4>
                 <ul>
                   {citiesOfCountry.map((city) => (
-                    <City city={city} key={city} />
+                    <City city={city} key={city} setIsOpen={setIsOpen} />
                   ))}
                 </ul>
               </div>

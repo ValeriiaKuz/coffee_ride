@@ -36,8 +36,9 @@ export default function CoffeePoints() {
             onClick={() => {
               setIsOpen(true);
             }}
+            className={style.mainButton}
           >
-            Choose city
+            Please,choose city to see coffee-points
           </button>
         </div>
       )}
