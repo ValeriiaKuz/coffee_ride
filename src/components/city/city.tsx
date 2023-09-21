@@ -3,13 +3,16 @@ import { FC } from "react";
 import { useDispatch, useSelector } from "../../servicies/redux/hooks/hooks";
 import { setChosenCity } from "@/src/servicies/redux/slices/city";
 import { setCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 
 const City: FC<{ city: string }> = ({ city }) => {
   const dispatch = useDispatch();
   const accepted = useSelector((state) => state.acceptedCookies.isAccepted);
+  const router = useRouter();
 
   const chooseCity = () => {
     dispatch(setChosenCity(city));
+    router.push(`/coffee-points/${city}`);
     if (accepted) {
       setCookie("city", city);
     }

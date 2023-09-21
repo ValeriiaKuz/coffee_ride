@@ -20,7 +20,7 @@ export const Navigation = () => {
   return (
     <nav className={classNames(!isMain && style.notMain)}>
       <ul>
-        {chosenCity && pathname === "/coffee-points" && (
+        {chosenCity && pathname.includes("/coffee-points/") && (
           <li>
             <button onClick={onCityClick}>
               <Image
