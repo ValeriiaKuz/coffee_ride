@@ -69,7 +69,7 @@ export default function CoffeePointsOfCity({
 
   useEffect(() => {
     setSearchedPoints(sortedPoints);
-  }, [sortedPoints]);
+  }, [sortedPoints, setSearchedPoints]);
 
   useEffect(() => {
     const fetchData = async (chosenCity: string) => {

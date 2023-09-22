@@ -73,7 +73,7 @@ export const PointsMap: FC<PointsMapPropType> = ({ points }) => {
                 }}
               >
                 <div className={style.infoWrapper}>
-                  <Link href={`coffee-points/${point.city}/${point.id}`}>
+                  <Link href={`${point.city}/${point.id}`}>
                     <Image
                       src={point.previews[0]}
                       alt={"cafe-preview"}
@@ -85,7 +85,7 @@ export const PointsMap: FC<PointsMapPropType> = ({ points }) => {
                   <div className={style.info}>
                     <span className={style.cafeName}>{point.name}</span>
                     <span className={style.cafeAddress}>{point.address}</span>
-                    <Link href={`coffee-points/${point.city}/${point.id}`}>
+                    <Link href={`${point.city}/${point.id}`}>
                       Go to coffee point
                     </Link>
                   </div>
