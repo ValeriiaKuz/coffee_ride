@@ -8,16 +8,19 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "../../servicies/redux/hooks/hooks";
 import { setUser } from "@/src/servicies/redux/slices/user";
 import { setCookie } from "cookies-next";
+import { ErrorComp } from "@/src/components/warning/error";
+import { useFormInput } from "@/src/hooks/useFormInput";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const emailProps = useFormInput("");
+  const passwordProps = useFormInput("");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const router = useRouter();
   const dispatch = useDispatch();
 
   const onFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, emailProps.value, passwordProps.value)
       .then(async (userCredential) => {
         const user = userCredential.user;
         dispatch(setUser(user));
@@ -28,8 +31,8 @@ export default function Login() {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        setErrorMessage(error.message);
+        console.log(errorCode, error.message);
       });
   };
   return (
@@ -38,20 +41,21 @@ export default function Login() {
       <form onSubmit={onFormSubmit} className={style.form}>
         <input
           type={"email"}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={emailProps.value}
+          onChange={emailProps.onChange}
           placeholder={"E-mail"}
           required
           className={style.email}
         />
         <input
           type={"password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={passwordProps.value}
+          onChange={passwordProps.onChange}
           placeholder={"Password"}
           required
           className={style.password}
         />
+        {errorMessage && <ErrorComp errorMessage={errorMessage} />}
         <button type={"submit"} className={style.button}>
           Log in
         </button>

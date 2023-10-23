@@ -7,11 +7,10 @@ import { ImageGallery } from "@/src/components/Image-gallery/image-gallery";
 import { Rating } from "@/src/components/rating/rating";
 import PointMap from "@/src/components/maps/point-map";
 import { ReviewForm } from "@/src/components/review-form/review-form";
-import fav from "../../../../images/fav.svg";
-import Image from "next/image";
 import { Reviews } from "@/src/components/reviews/reviews";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { FavButton } from "@/src/components/fav-button/fav-button";
+import noPhoto from "../../../../images/noPhoto.jpeg";
 
 type CafeParamsType = {
   params: { city: string; id: string };
@@ -62,7 +61,13 @@ export default function Cafe({ params }: CafeParamsType) {
     cafeInfo && (
       <div className={style.contentWrapper}>
         <div className={style.galleryWrapper}>
-          <ImageGallery imagePreviews={cafeInfo.previews} />
+          <ImageGallery
+            imagePreviews={
+              cafeInfo.previews
+                ? cafeInfo.previews
+                : ([noPhoto.src] as string[])
+            }
+          />
         </div>
         <div className={style.infoWrapper}>
           <div className={style.infoContent}>
@@ -70,14 +75,7 @@ export default function Cafe({ params }: CafeParamsType) {
               <div className={style.info}>
                 <div className={style.title}>
                   <h1>{cafeInfo.name}</h1>
-                  <button className={style.button}>
-                    <Image
-                      src={fav}
-                      alt={"add to favourite"}
-                      width={30}
-                      height={30}
-                    />
-                  </button>
+                  <FavButton width={30} height={30} />
                 </div>
                 <p>
                   City: <span>{cafeInfo.city}</span>

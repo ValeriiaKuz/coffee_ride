@@ -11,7 +11,6 @@ export const PreviewsAddedImg: FC<PreviewsAddedImgPropType> = ({
 }) => {
   return (
     <>
-      <span className={style.sumOfImg}>{files.length}/3</span>
       {files.map((file, index) => (
         <div key={index} className={style.wrapper}>
           <Image

@@ -30,7 +30,7 @@ export default function CoffeePoints() {
   return (
     <section className={style.coffeePoints}>
       {isOpen && <Cities />}
-      {!isOpen && (
+      {!isOpen && !chosenCity && (
         <div>
           <button
             onClick={() => {

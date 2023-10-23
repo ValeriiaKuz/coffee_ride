@@ -13,6 +13,7 @@ import {
 } from "@/src/servicies/redux/slices/coffeepoints";
 import { collection, getDocs } from "@firebase/firestore";
 import { db } from "@/src/firebase/firebase";
+import { Loader } from "@/src/components/loader/loader";
 
 export async function generateStaticParams() {
   const countriesData = await getDocs(collection(db, "countries"));
@@ -122,6 +123,7 @@ export default function CoffeePointsOfCity({
           points={searchedPoints}
         />
         <div className={style.cardsWrapper}>
+          {coffeePoints.length < 1 && <Loader />}
           {searchedPoints.map((cafe) => (
             <CafeCard cafe={cafe} key={cafe.address} />
           ))}
