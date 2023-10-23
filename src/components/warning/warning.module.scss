@@ -1,0 +1,16 @@
+.error{
+  color: var(--accent-color);
+}
+.popUp{
+  position: absolute;
+  width: max-content;
+  top:-70%;
+  left: 0;
+  padding: calc(var(--index)*.15);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  font-size: calc(var(--index)*0.5);
+  a{
+    text-decoration: underline;
+  }
+}

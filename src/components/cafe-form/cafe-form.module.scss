@@ -1,0 +1,135 @@
+.contentWrapper{
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  padding: calc(var(--index)*1) calc(var(--index)*2);
+  >label{
+    margin-top: calc(var(--index)*2);
+    display: flex;
+    position: relative;
+    +div{
+        display: flex;
+        flex-direction: row;
+        gap:calc(var(--index)*.4);
+      padding: calc(var(--index)*.5) 0;
+    }
+    >span{
+      border: 1px solid var(--accent-color);
+      border-radius: 4px;
+      color: var(--accent-color);
+      padding: calc(var(--index)*.2) calc(var(--index)*.9) ;
+      font-size: calc(var(--index)*.5);
+    }
+    >input[type=file]{
+      width: 30%;
+      height: calc(var(--index)*1.2);
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      +button{
+        margin-left: calc(var(--index)*.8);
+        padding: calc(var(--index)*.2) calc(var(--index)*.9) calc(var(--index)*.3);
+        border: 1px solid var(--accent-color);
+        border-radius: 4px;
+        color: #fee6e6;
+        background: var(--accent-color);
+        font-size: calc(var(--index)*.5);
+        opacity: 0.9;
+        transition: 0.2s ease-in;
+        &:hover{
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+  >button{
+    width: max-content;
+    margin-top:calc(var(--index)*.4) ;
+    padding: calc(var(--index)*.2) calc(var(--index)*.9) ;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    color: #fee6e6;
+    background: var(--accent-color);
+    font-size: calc(var(--index)*.5);
+    opacity: 0.9;
+    transition: 0.2s ease-in;
+    &:hover{
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+  >span{
+    font-size: calc(var(--index)*.6);
+    color: #10297d;
+  }
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  h1{
+    font-size: calc(var(--index)*1.5);
+    color: #10297d;
+    margin-bottom: calc(var(--index)*.4);
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap:calc(var(--index)*.2);
+    font-size: calc(var(--index)*.4);
+    color:red;
+    >div{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap:calc(var(--index)*.2);
+      margin: calc(var(--index)*.2) 0;
+      >div{
+        display: flex;
+        flex-direction: column;
+      gap:calc(var(--index)*.2)
+    }
+    }
+    label{
+      font-size: calc(var(--index)*.6);
+      color: #10297d;
+    }
+    input{
+      outline: none;
+      padding: calc(var(--index)*.1);
+      border: 1px solid grey;
+      border-radius: 4px;
+      font-size: calc(var(--index)*.8);
+      +label{
+        margin-top: calc(var(--index)*.2);
+      }
+
+      &:focus{
+        border:1px solid var(--accent-color);
+      }
+  }
+    button{
+      display: flex;
+      width: max-content;
+      margin: calc(var(--index)*.4) 0;
+      padding: calc(var(--index)*.2) calc(var(--index)*.9) calc(var(--index)*.3);
+      border: 1px solid var(--accent-color);
+      border-radius: 4px;
+      color: #fee6e6;
+      background: var(--accent-color);
+      font-size: calc(var(--index)*.8);
+      opacity: 0.9;
+      transition: 0.2s ease-in;
+      &:hover{
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+  >span{
+    font-size: calc(var(--index)*.6);
+    color: #10297d;
+  }
+}

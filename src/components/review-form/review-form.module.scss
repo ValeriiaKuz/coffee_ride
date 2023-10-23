@@ -64,6 +64,10 @@
       .starsTitle{
         margin-bottom: calc(var(--index)*.3);
       }
+      .buttonWrapper{
+        position: relative;
+        margin-top: auto;
+      }
       .submitButton{
         background-color: #ffcfcf;
         border: none;
@@ -71,7 +75,6 @@
         outline: none;
         font-size: calc(var(--index)*0.8);
         color: var(--accent-color);
-        margin-top: auto;
         padding: calc(var(--index)*.3) calc(var(--index)*.6);
         transition: ease 0.3s;
         cursor: pointer;
@@ -88,4 +91,8 @@
   flex-direction: row;
   gap:calc(var(--index)*.5);
   padding: 0 calc(var(--index)*.2);
+}
+.sumOfImg{
+  font-size: calc(var(--index)*0.5);
+  color: rgba(23, 23, 23, 0.5);
 }

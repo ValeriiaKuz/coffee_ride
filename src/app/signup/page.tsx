@@ -7,22 +7,26 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "@/src/servicies/redux/hooks/hooks";
 import { setUser } from "@/src/servicies/redux/slices/user";
 import { setCookie } from "cookies-next";
+import { ErrorComp } from "@/src/components/warning/error";
+import { useFormInput } from "@/src/hooks/useFormInput";
+import Link from "next/link";
 
 export default function SignUp() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const emailProps = useFormInput("");
+  const passwordProps = useFormInput("");
+  const nameProps = useFormInput("");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const router = useRouter();
   const dispatch = useDispatch();
 
   const onFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, emailProps.value, passwordProps.value)
       .then((userCredential) => {
         const user = userCredential.user;
-        if (auth.currentUser && name) {
+        if (auth.currentUser && nameProps.value) {
           updateProfile(auth.currentUser, {
-            displayName: name,
+            displayName: nameProps.value,
           })
             .then(async () => {
               if (auth.currentUser) {
@@ -39,8 +43,8 @@ export default function SignUp() {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        setErrorMessage(error.message);
+        console.log(errorCode, error.message);
       });
   };
   return (
@@ -49,32 +53,38 @@ export default function SignUp() {
       <form onSubmit={onFormSubmit} className={style.form}>
         <input
           type={"email"}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={emailProps.value}
+          onChange={emailProps.onChange}
           placeholder={"E-mail"}
           required
           className={style.email}
         />
         <input
           type={"password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={passwordProps.value}
+          onChange={passwordProps.onChange}
           placeholder={"Password"}
           required
           className={style.password}
         />
         <input
           type={"text"}
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
+          value={nameProps.value}
+          onChange={nameProps.onChange}
           placeholder={"Name"}
           className={style.nickname}
         />
+        {errorMessage && <ErrorComp errorMessage={errorMessage} />}
         <button type={"submit"} className={style.button}>
           Sign up
         </button>
+        <span>
+          If you have already signed up, please
+          <Link href={"/login"} className={style.accent}>
+            {" "}
+            LOG IN
+          </Link>
+        </span>
       </form>
     </main>
   );

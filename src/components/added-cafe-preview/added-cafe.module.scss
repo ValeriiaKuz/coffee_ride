@@ -1,0 +1,22 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--index)*.4);
+  >p{
+    font-size: calc(var(--index)*0.6);
+    color: #10297d;
+    >span{
+      font-size: calc(var(--index)*0.8);
+      color: #040a23;
+    }
+  }
+  >p+div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap:calc(var(--index)*.4);
+    margin-top: calc(var(--index)*1);
+  }
+}

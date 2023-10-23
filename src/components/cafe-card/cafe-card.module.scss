@@ -52,12 +52,11 @@
   border-bottom: 1px solid rgba(16, 41, 125, 0.3);
 }
 .ratingWrapper{
+  position: relative;
   padding:  calc(var(--index)*0.5);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.fav{
-  cursor: pointer;
-}
+

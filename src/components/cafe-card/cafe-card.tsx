@@ -1,12 +1,13 @@
+"use client";
 import { CoffeePointType } from "@/src/servicies/redux/slices/coffeepoints";
 import { FC, useState } from "react";
 import style from "./cafe-card.module.scss";
 import { ImageSlider } from "@/src/components/Image-slider/Image-slider";
 import Link from "next/link";
 import { Rating } from "@/src/components/rating/rating";
-import Image from "next/image";
-import fav from "../../images/fav.svg";
 import { SharePopup } from "@/src/components/share/share-popup";
+import { FavButton } from "@/src/components/fav-button/fav-button";
+import noPhoto from "../../images/noPhoto.jpeg";
 type cafePropType = {
   cafe: CoffeePointType;
 };
@@ -15,7 +16,11 @@ const CafeCard: FC<cafePropType> = ({ cafe }) => {
   return (
     <div className={style.cafeCard}>
       <div className={style.sliderWrapper}>
-        <ImageSlider imagePreviews={cafe.previews} />
+        <ImageSlider
+          imagePreviews={
+            cafe.previews ? cafe.previews : ([noPhoto.src] as string[])
+          }
+        />
         <div
           className={style.share}
           onClick={() => {
@@ -32,13 +37,7 @@ const CafeCard: FC<cafePropType> = ({ cafe }) => {
         </Link>
         <div className={style.ratingWrapper}>
           <Rating rating={cafe.rating} />
-          <Image
-            src={fav}
-            alt={"add favourite"}
-            width={20}
-            height={20}
-            className={style.fav}
-          />
+          <FavButton height={20} width={20} />
         </div>
       </div>
     </div>

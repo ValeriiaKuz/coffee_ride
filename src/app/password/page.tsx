@@ -4,20 +4,23 @@ import { sendPasswordResetEmail } from "@firebase/auth";
 import { auth } from "@/src/firebase/firebase";
 import style from "@/src/app/login/login-signup.module.scss";
 import Link from "next/link";
+import { ErrorComp } from "@/src/components/warning/error";
+import { useFormInput } from "@/src/hooks/useFormInput";
 
 export default function ForgotPassword() {
-  const [email, setEmail] = useState("");
+  const emailProps = useFormInput("");
   const [isSent, setIsSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const onHandleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    sendPasswordResetEmail(auth, email)
+    sendPasswordResetEmail(auth, emailProps.value)
       .then(() => {
         setIsSent(true);
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        setErrorMessage(error.message);
+        console.log(errorCode, error.message);
       });
   };
   return (
@@ -26,13 +29,12 @@ export default function ForgotPassword() {
       <form onSubmit={onHandleSubmit} className={style.form}>
         <input
           type={"email"}
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
+          value={emailProps.value}
+          onChange={emailProps.onChange}
           placeholder={"E-mail"}
           className={style.email}
         />
+        {errorMessage && <ErrorComp errorMessage={errorMessage} />}
         <button type={"submit"} className={style.button}>
           Send e-mail for reset
         </button>
