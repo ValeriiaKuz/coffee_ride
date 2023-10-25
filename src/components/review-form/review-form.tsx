@@ -47,7 +47,7 @@ export const ReviewForm: FC<CafePropsType> = ({ cafeId, cafeCity }) => {
     files: File[],
     city: string,
     id: string,
-    imageUrls,
+    imageUrls: string[],
   ) => {
     try {
       for (const file of files) {
@@ -61,7 +61,14 @@ export const ReviewForm: FC<CafePropsType> = ({ cafeId, cafeCity }) => {
     }
   };
 
-  const addReview = async (text, urls, city, user, cafe, rating) => {
+  const addReview = async (
+    text: string,
+    urls: string[],
+    city: string,
+    user: string,
+    cafe: string,
+    rating: number,
+  ) => {
     try {
       const reviewId = self.crypto.randomUUID();
       const reviewRef = doc(db, `reviews`, reviewId);
@@ -88,11 +95,11 @@ export const ReviewForm: FC<CafePropsType> = ({ cafeId, cafeCity }) => {
   const onHandleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setWarning({ isWarning: false, message: "" });
-    if (isAuth) {
+    if (isAuth && userID) {
       if (rating > 0 && textValue.value.length > 0 && files.length > 0) {
         setIsAdded(false);
         setIsLoading(true);
-        const imageUrls = [];
+        const imageUrls: string[] = [];
         uploadImages(files, cafeCity, cafeId, imageUrls)
           .then(() => {
             addReview(

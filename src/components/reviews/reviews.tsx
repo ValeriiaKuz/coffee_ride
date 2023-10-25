@@ -13,9 +13,9 @@ export const Reviews = () => {
   useEffect(() => {
     const q = query(collection(db, "reviews"), where("cafeID", "==", id));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const rev = [];
+      const rev: TReview[] = [];
       querySnapshot.forEach((doc) => {
-        rev.push(doc.data());
+        rev.push(doc.data() as TReview);
       });
       setReviews(rev);
     });

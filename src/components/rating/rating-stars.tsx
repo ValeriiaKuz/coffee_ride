@@ -2,17 +2,22 @@
 import style from "./stars-rating.module.scss";
 import { FC, useState } from "react";
 import classNames from "classnames";
-type StarsRatingProps = {
-  ratingFromCustReview?: number;
-  rating?: number;
-  setRating?: (raiting: number) => void;
-};
+type StarsRatingProps =
+  | {
+      rating: number;
+      setRating: (rating: number) => void;
+      ratingFromCustReview?: number;
+    }
+  | {
+      rating?: number;
+      setRating?: (rating: number) => void;
+      ratingFromCustReview: number;
+    };
 export const StarsRating: FC<StarsRatingProps> = ({
   ratingFromCustReview,
   rating,
   setRating,
 }) => {
-  // const [rating, setRating] = useState(ratingFromCustReview || 0);
   const [hover, setHover] = useState(0);
   return (
     <div className={style.stars}>
@@ -26,7 +31,7 @@ export const StarsRating: FC<StarsRatingProps> = ({
             className={classNames(
               style.button,
               ratingFromCustReview && style.review,
-              index <= (hover || rating || ratingFromCustReview)
+              index <= (hover ?? rating ?? ratingFromCustReview)
                 ? style.on
                 : style.off,
             )}
