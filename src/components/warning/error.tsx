@@ -4,5 +4,5 @@ type ErrorPropType = {
   errorMessage: string;
 };
 export const ErrorComp: FC<ErrorPropType> = ({ errorMessage }) => {
-  return <div className={style.error}>{errorMessage}</div>;
+  return <span className={style.error}>{errorMessage}</span>;
 };

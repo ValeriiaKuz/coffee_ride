@@ -8,7 +8,10 @@ export type TReview = {
   id: string;
   rating: number;
   text: string;
-  date?: Timestamp;
+  date: Timestamp;
+  city: string;
+  cafeID: string;
+  userID: string;
   images?: string[];
 };
 type ReviewPropType = {

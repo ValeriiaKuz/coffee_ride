@@ -46,7 +46,6 @@ export async function generateStaticParams({
 }
 
 export default function Cafe({ params }: CafeParamsType) {
-  console.log("params", params);
   const [cafeInfo, setCafeInfo] = useState<CoffeePointType>();
   useEffect(() => {
     const fetchData = async () => {
@@ -93,7 +92,7 @@ export default function Cafe({ params }: CafeParamsType) {
                 />
               </div>
             </div>
-            <ReviewForm />
+            <ReviewForm cafeId={cafeInfo.id} cafeCity={cafeInfo.city} />
             <Reviews />
           </div>
           <div className={style.mapWrapper}>

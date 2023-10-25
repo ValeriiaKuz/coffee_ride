@@ -1,27 +1,22 @@
-.loader_coffee{
-  background:var(--accent-color);
-  height:80px;
-  width:80px;
-  border:6px solid var(--accent-color);
-  box-shadow: 0 0 0 10px white;
-  margin:auto;
-  position: relative;
-  border-radius: 0 0 110px 110px;
-  background-image: linear-gradient( 0deg, white 0, white 110px, transparent 110px, transparent 230px);
-  background-size: 230px 230px;
-  background-position: 0 0;
-  animation: fill 3s infinite alternate;
+.loader {
+  background-color: transparent;
+  width:  10px;
+  height: 10px;
+  border-radius: 100%;
+  margin-bottom: 20px;
+  box-shadow:
+          12px -12px hsla(357, 73%, 57%, 0.125),
+          17px     0 hsla(357, 73%, 57%, 0.250),
+          12px  12px hsla(357, 73%, 57%, 0.375),
+          0  17px hsla(357, 73%, 57%, 0.500),
+          -12px  12px hsla(357, 73%, 57%, 0.625),
+          -17px     0 hsla(357, 73%, 57%, 0.750),
+          -12px -12px hsla(357, 73%, 57%,0.875),
+          0 -17px hsl(357, 73%, 57%);
+  animation: clockwise 0.75s steps(8, end) infinite;
 }
 
-.loader_coffee:before{
-  position: absolute;
-  content: "";
-  height: 29px;
-  width: 29px;
-  border:10px solid white;
-  border-radius: 0 40px  40px 0;
-  right: -55px;
-}
-@keyframes fill {
-  100%{ background-position: 0 -110px;}
+@keyframes clockwise
+{
+  to {transform: rotate(360deg) translatez(0);}
 }

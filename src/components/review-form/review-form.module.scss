@@ -67,6 +67,14 @@
       .buttonWrapper{
         position: relative;
         margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap:calc(var(--index)*.2);
+        align-items: center;
+        justify-content: center;
+        >span{
+          font-size: calc(var(--index)*.4);
+        }
       }
       .submitButton{
         background-color: #ffcfcf;

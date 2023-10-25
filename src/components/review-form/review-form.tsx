@@ -1,7 +1,7 @@
 "use client";
 import { StarsRating } from "@/src/components/rating/rating-stars";
 import style from "./review-form.module.scss";
-import { FormEvent, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import Image from "next/image";
 import sitting from "../../images/sitting2.png";
 import paperclip from "../../images/paperclip.svg";
@@ -9,16 +9,110 @@ import { PreviewsAddedImg } from "@/src/components/review-form/previews-added-im
 import { useIsAuth } from "@/src/hooks/useLoginBefore";
 import { LoginBefore } from "@/src/components/warning/login-before";
 import { FileInput } from "@/src/components/review-form/file-input";
-export const ReviewForm = () => {
+import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
+import { db, storage } from "@/src/firebase/firebase";
+import { CafePropsType } from "@/src/components/cafe-form/cafe-form-wrapper";
+import { useFormInput } from "@/src/hooks/useFormInput";
+import { doc, setDoc } from "@firebase/firestore";
+import { Loader } from "@/src/components/loader/loader";
+import { ErrorComp } from "@/src/components/warning/error";
+export const ReviewForm: FC<CafePropsType> = ({ cafeId, cafeCity }) => {
   const [files, setFiles] = useState<Array<File>>([]);
-  const { isAuth, isLoginBefore, setLoginBefore } = useIsAuth();
+  const textValue = useFormInput("");
+  const [rating, setRating] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const [warning, setWarning] = useState({ isWarning: false, message: "" });
+  const { userID, isAuth, isLoginBefore, setLoginBefore } = useIsAuth();
   const onHandleDeletePreview = (file: File) => {
     setFiles((prev) => prev.filter((prevFile) => prevFile !== file));
   };
+  const uploadImage = async (
+    city: string,
+    id: string,
+    name: string,
+    file: File,
+  ) => {
+    try {
+      const imageRef = ref(storage, `${city}/${id}/reviews/${name}`);
+      const snapshot = await uploadBytes(imageRef, file);
+      const url = await getDownloadURL(snapshot.ref);
+      setFiles([]);
+      return url;
+    } catch (error) {
+      setWarning({ isWarning: true, message: "error" });
+    }
+  };
+  const uploadImages = async (
+    files: File[],
+    city: string,
+    id: string,
+    imageUrls,
+  ) => {
+    try {
+      for (const file of files) {
+        const url = await uploadImage(city, id, file.name, file);
+        if (url) {
+          imageUrls.push(url);
+        }
+      }
+    } catch (error) {
+      setWarning({ isWarning: true, message: "error" });
+    }
+  };
+
+  const addReview = async (text, urls, city, user, cafe, rating) => {
+    try {
+      const reviewId = self.crypto.randomUUID();
+      const reviewRef = doc(db, `reviews`, reviewId);
+      await setDoc(
+        reviewRef,
+        {
+          text: text,
+          date: new Date(),
+          id: reviewId,
+          rating: rating,
+          images: urls,
+          userID: user,
+          cafeID: cafe,
+          city: city,
+        },
+        { merge: true },
+      );
+      textValue.clear();
+      setRating(0);
+    } catch (error) {
+      setWarning({ isWarning: true, message: "error" });
+    }
+  };
   const onHandleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setWarning({ isWarning: false, message: "" });
     if (isAuth) {
-      // post review
+      if (rating > 0 && textValue.value.length > 0 && files.length > 0) {
+        setIsAdded(false);
+        setIsLoading(true);
+        const imageUrls = [];
+        uploadImages(files, cafeCity, cafeId, imageUrls)
+          .then(() => {
+            addReview(
+              textValue.value,
+              imageUrls,
+              cafeCity,
+              userID,
+              cafeId,
+              rating,
+            );
+          })
+          .then(() => {
+            setIsLoading(false), setIsAdded(true);
+          });
+      } else {
+        setWarning({
+          isWarning: true,
+          message: "not all form fields are completed",
+        });
+      }
     } else {
       setLoginBefore(!isLoginBefore);
     }
@@ -40,12 +134,21 @@ export const ReviewForm = () => {
         </div>
         <textarea
           placeholder={"Please, feel free to drop here your feedback"}
+          value={textValue.value}
+          onChange={textValue.onChange}
         />
         <div className={style.buttons}>
           <h4 className={style.starsTitle}>Rate your experience</h4>
-          <StarsRating />
+          <StarsRating rating={rating} setRating={setRating} />
           <div className={style.buttonWrapper}>
-            <button type={"submit"} className={style.submitButton}>
+            {isLoading && <Loader />}
+            {isAdded && <span>Review has been added</span>}
+            {warning && <ErrorComp errorMessage={warning.message} />}
+            <button
+              type={"submit"}
+              className={style.submitButton}
+              disabled={isLoading}
+            >
               Submit review
             </button>
             {isLoginBefore && <LoginBefore />}
