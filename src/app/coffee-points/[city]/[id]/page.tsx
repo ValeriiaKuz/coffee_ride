@@ -74,7 +74,7 @@ export default function Cafe({ params }: CafeParamsType) {
               <div className={style.info}>
                 <div className={style.title}>
                   <h1>{cafeInfo.name}</h1>
-                  <FavButton width={30} height={30} />
+                  <FavButton width={30} height={30} cafeID={params.id} />
                 </div>
                 <p>
                   City: <span>{cafeInfo.city}</span>

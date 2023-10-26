@@ -37,7 +37,7 @@ const CafeCard: FC<cafePropType> = ({ cafe }) => {
         </Link>
         <div className={style.ratingWrapper}>
           <Rating rating={cafe.rating} />
-          <FavButton height={20} width={20} />
+          <FavButton height={20} width={20} cafeID={cafe.id} />
         </div>
       </div>
     </div>
