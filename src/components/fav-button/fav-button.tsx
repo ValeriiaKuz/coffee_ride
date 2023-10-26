@@ -27,6 +27,7 @@ export const FavButton: FC<FavButtonPropType> = ({ width, height, cafeID }) => {
   const [isFav, setIsFav] = useState(false);
   const [isAddedToFav, setIsAddedToFav] = useState(false);
   const [isDeletedFromFav, setIsDeletedFromFav] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       if (userID) {
@@ -55,28 +56,36 @@ export const FavButton: FC<FavButtonPropType> = ({ width, height, cafeID }) => {
 
   const addToFavourite = async () => {
     if (isAuth && userID) {
-      const userRef = doc(db, "users", userID);
-      await setDoc(
-        userRef,
-        {
-          userID: userID,
-          favourites: arrayUnion(cafeID),
-        },
-        { merge: true },
-      );
-      setIsAddedToFav(true);
+      try {
+        const userRef = doc(db, "users", userID);
+        await setDoc(
+          userRef,
+          {
+            userID: userID,
+            favourites: arrayUnion(cafeID),
+          },
+          { merge: true },
+        );
+        setIsAddedToFav(true);
+      } catch (e) {
+        console.log("Error adding to fav:", e);
+      }
     } else {
       setLoginBefore(!isLoginBefore);
     }
   };
   const deleteFromFavourite = async () => {
     if (isAuth && userID) {
-      const userRef = doc(db, "users", userID);
-      await updateDoc(userRef, {
-        userID: userID,
-        favourites: arrayRemove(cafeID),
-      });
-      setIsDeletedFromFav(true);
+      try {
+        const userRef = doc(db, "users", userID);
+        await updateDoc(userRef, {
+          userID: userID,
+          favourites: arrayRemove(cafeID),
+        });
+        setIsDeletedFromFav(true);
+      } catch (e) {
+        console.log("Error deleting from fav:", e);
+      }
     } else {
       setLoginBefore(!isLoginBefore);
     }

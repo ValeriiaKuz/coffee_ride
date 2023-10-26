@@ -11,7 +11,7 @@ import {
   CoffeePointType,
   setCoffeePoints,
 } from "@/src/servicies/redux/slices/coffeepoints";
-import { collection, getDocs } from "@firebase/firestore";
+import { collection, getDocs, query, where } from "@firebase/firestore";
 import { db } from "@/src/firebase/firebase";
 import { Loader } from "@/src/components/loader/loader";
 
@@ -75,7 +75,12 @@ export default function CoffeePointsOfCity({
   useEffect(() => {
     const fetchData = async (chosenCity: string) => {
       try {
-        const coffeePointsData = await getDocs(collection(db, chosenCity));
+        const q = query(
+          collection(db, "coffeepoints"),
+          where("city", "==", chosenCity),
+        );
+
+        const coffeePointsData = await getDocs(q);
         const coffeePoints = coffeePointsData.docs.map((point) => {
           const data = point.data();
           return {
@@ -103,6 +108,7 @@ export default function CoffeePointsOfCity({
     };
     fetchData(chosenCity);
   }, [chosenCity]);
+
   return (
     <section className={style.coffeePoints}>
       {isOpen && <Cities />}

@@ -49,7 +49,7 @@ export default function Cafe({ params }: CafeParamsType) {
   const [cafeInfo, setCafeInfo] = useState<CoffeePointType>();
   useEffect(() => {
     const fetchData = async () => {
-      const cafeInfoData = await getDoc(doc(db, params.city, params.id));
+      const cafeInfoData = await getDoc(doc(db, "coffeepoints", params.id));
       const cafe: CoffeePointType = cafeInfoData.data() as CoffeePointType;
       setCafeInfo(cafe);
     };
