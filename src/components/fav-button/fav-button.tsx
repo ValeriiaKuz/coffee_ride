@@ -27,6 +27,7 @@ export const FavButton: FC<FavButtonPropType> = ({ width, height, cafeID }) => {
   const [isFav, setIsFav] = useState(false);
   const [isAddedToFav, setIsAddedToFav] = useState(false);
   const [isDeletedFromFav, setIsDeletedFromFav] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,6 +58,7 @@ export const FavButton: FC<FavButtonPropType> = ({ width, height, cafeID }) => {
   const addToFavourite = async () => {
     if (isAuth && userID) {
       try {
+        setIsLoading(true);
         const userRef = doc(db, "users", userID);
         await setDoc(
           userRef,
@@ -66,8 +68,11 @@ export const FavButton: FC<FavButtonPropType> = ({ width, height, cafeID }) => {
           },
           { merge: true },
         );
+        setIsFav(true);
+        setIsLoading(false);
         setIsAddedToFav(true);
       } catch (e) {
+        setIsLoading(false);
         console.log("Error adding to fav:", e);
       }
     } else {
@@ -77,13 +82,17 @@ export const FavButton: FC<FavButtonPropType> = ({ width, height, cafeID }) => {
   const deleteFromFavourite = async () => {
     if (isAuth && userID) {
       try {
+        setIsLoading(true);
         const userRef = doc(db, "users", userID);
         await updateDoc(userRef, {
           userID: userID,
           favourites: arrayRemove(cafeID),
         });
+        setIsFav(false);
+        setIsLoading(false);
         setIsDeletedFromFav(true);
       } catch (e) {
+        setIsLoading(false);
         console.log("Error deleting from fav:", e);
       }
     } else {
@@ -91,13 +100,15 @@ export const FavButton: FC<FavButtonPropType> = ({ width, height, cafeID }) => {
     }
   };
   return (
-    <button className={style.button}>
+    <button
+      className={isLoading ? `${style.button} ${style.loading}` : style.button}
+      onClick={isFav ? deleteFromFavourite : addToFavourite}
+    >
       <Image
         src={isFav ? favChosen : fav}
         alt={"add favourite"}
         width={width}
         height={height}
-        onClick={isFav ? deleteFromFavourite : addToFavourite}
       />
       {isLoginBefore && <LoginBefore />}
     </button>

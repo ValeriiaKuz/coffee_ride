@@ -4,9 +4,9 @@ import React from "react";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import { Providers } from "../servicies/providers/providers";
-import Cities from "@/src/app/coffee-points/@modal/cities/page";
 import { poppins400 } from "@/src/fonts/fonts";
 import { CookiesAccept } from "@/src/components/cookies-accept/cookies-accept";
+import Cities from "@/src/app/coffee-points/@modal/cities/page";
 
 export const metadata: Metadata = {
   title: "Coffee Ride",

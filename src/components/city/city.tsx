@@ -15,7 +15,7 @@ const City: FC<{ city: string; setIsOpen: (isOpen: boolean) => void }> = ({
 
   const chooseCity = () => {
     dispatch(setChosenCity(city));
-    router.push(`/coffee-points/${city}`);
+    router.push(`${city}`);
     setIsOpen(false);
     if (accepted) {
       setCookie("city", city);

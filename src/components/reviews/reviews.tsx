@@ -7,7 +7,7 @@ import { Review, TReview } from "@/src/components/reviews/review";
 
 export const Reviews = () => {
   const pathname = usePathname();
-  const [, , , id] = pathname.split("/");
+  const [, , id] = pathname.split("/");
   const [reviews, setReviews] = useState<TReview[]>([]);
 
   useEffect(() => {

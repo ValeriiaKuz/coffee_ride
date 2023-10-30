@@ -10,7 +10,7 @@ import { ReviewForm } from "@/src/components/review-form/review-form";
 import { Reviews } from "@/src/components/reviews/reviews";
 import { useEffect, useState } from "react";
 import { FavButton } from "@/src/components/fav-button/fav-button";
-import noPhoto from "../../../../images/noPhoto.jpeg";
+import noPhoto from "../../../images/noPhoto.jpeg";
 
 type CafeParamsType = {
   params: { city: string; id: string };
@@ -47,6 +47,7 @@ export async function generateStaticParams({
 
 export default function Cafe({ params }: CafeParamsType) {
   const [cafeInfo, setCafeInfo] = useState<CoffeePointType>();
+
   useEffect(() => {
     const fetchData = async () => {
       const cafeInfoData = await getDoc(doc(db, "coffeepoints", params.id));

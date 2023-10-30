@@ -5,7 +5,7 @@ import location from "../../../images/location.svg";
 import locationC from "../../../images/locationC.svg";
 import profileLogo from "../../../images/profile.svg";
 import profileLogoC from "../../../images/profileC.svg";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ModalContext } from "@/src/servicies/providers/modal-provider";
 import { useSelector } from "@/src/servicies/redux/hooks/hooks";
@@ -16,11 +16,20 @@ export const Navigation = () => {
   const chosenCity = useSelector((state) => state.chosenCity.chosenCity);
   const pathname = usePathname();
   const isMain = pathname === "/";
+  const [isShowing, setIsShowing] = useState(false);
+  useEffect(() => {
+    if (chosenCity === pathname.substring(1)) {
+      setIsShowing(true);
+    } else {
+      setIsShowing(false);
+    }
+  }, [chosenCity, pathname]);
+
   const onCityClick = () => setIsOpen(true);
   return (
     <nav className={classNames(!isMain && style.notMain)}>
       <ul>
-        {chosenCity && pathname.includes("/coffee-points/") && (
+        {isShowing && (
           <li>
             <button onClick={onCityClick}>
               <Image

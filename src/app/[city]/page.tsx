@@ -1,7 +1,6 @@
 "use client";
-import style from "../coffee-points.module.scss";
+import style from "../coffee-points/coffee-points.module.scss";
 import { useContext, useEffect, useMemo, useState } from "react";
-import Cities from "@/src/app/coffee-points/@modal/cities/page";
 import { useDispatch, useSelector } from "@/src/servicies/redux/hooks/hooks";
 import { ModalContext } from "@/src/servicies/providers/modal-provider";
 import CafeCard from "@/src/components/cafe-card/cafe-card";
@@ -14,6 +13,8 @@ import {
 import { collection, getDocs, query, where } from "@firebase/firestore";
 import { db } from "@/src/firebase/firebase";
 import { Loader } from "@/src/components/loader/loader";
+import Cities from "@/src/app/coffee-points/@modal/cities/page";
+import { setChosenCity } from "@/src/servicies/redux/slices/city";
 
 export async function generateStaticParams() {
   const countriesData = await getDocs(collection(db, "countries"));
@@ -73,6 +74,7 @@ export default function CoffeePointsOfCity({
   }, [sortedPoints, setSearchedPoints]);
 
   useEffect(() => {
+    dispatch(setChosenCity(chosenCity));
     const fetchData = async (chosenCity: string) => {
       try {
         const q = query(
