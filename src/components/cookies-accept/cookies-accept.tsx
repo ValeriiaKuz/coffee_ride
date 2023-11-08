@@ -4,6 +4,7 @@ import { setAcceptedCookies } from "@/src/servicies/redux/slices/accepted-cookie
 import { deleteCookie, getCookie, setCookie } from "cookies-next";
 import { useDispatch, useSelector } from "@/src/servicies/redux/hooks/hooks";
 import { useEffect, useState } from "react";
+import { ButtonComponent } from "@/src/components/buttons/button";
 export const CookiesAccept = () => {
   const [showComponent, setShowComponent] = useState(false);
   const isAcceptedCookies = getCookie("acceptedCookies");
@@ -42,12 +43,20 @@ export const CookiesAccept = () => {
           information. Please accept cookies for optimal performance. By
           continuing to use the website, you allow the use of cookie files.
         </p>
-        <button onClick={acceptCookies} className={style.accept}>
-          Accept cookies
-        </button>
-        <button onClick={denyCookies} className={style.deny}>
-          Disable cookies
-        </button>
+        <ButtonComponent
+          onHandleClick={acceptCookies}
+          title={"Accept cookies"}
+          bgC={"var(--second-color)"}
+          color={"var(--light-color)"}
+          hoverC={"var(--second-color-lighter)"}
+        />
+        <ButtonComponent
+          onHandleClick={denyCookies}
+          title={"Disable cookies"}
+          bgC={"transparent"}
+          color={"var(--second-color)"}
+          hoverC={"var(--light-color)"}
+        />
         <button onClick={denyCookies} className={style.close}>
           &#10005;
         </button>

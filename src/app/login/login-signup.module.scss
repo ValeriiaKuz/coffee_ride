@@ -26,22 +26,8 @@
         outline: 2px solid #fcb9b9;
       }
     }
-    .button{
-      width: max-content;
-      padding: 8px 40px;
-      border: none;
-      border-radius: 8px;
-      background-color: #fa8e90;
-      outline: none;
-      color: #fee6e6;
-      font-size: calc(var(--index)*.8);
-      transition: ease 0.3s;
-      &:hover{
-        background-color: var(--accent-color);
-      }
-    }
   }
-  span{
+  >span{
     color: rgba(12, 28, 75, 0.7);
     .accent{
       color: rgba(12, 28, 75, 1);

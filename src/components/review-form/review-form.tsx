@@ -16,6 +16,7 @@ import { useFormInput } from "@/src/hooks/useFormInput";
 import { doc, setDoc } from "@firebase/firestore";
 import { Loader } from "@/src/components/loader/loader";
 import { ErrorComp } from "@/src/components/warning/error";
+import { ButtonComponent } from "@/src/components/buttons/button";
 export const ReviewForm: FC<CafePropsType> = ({ cafeId, cafeCity }) => {
   const [files, setFiles] = useState<Array<File>>([]);
   const textValue = useFormInput("");
@@ -151,13 +152,14 @@ export const ReviewForm: FC<CafePropsType> = ({ cafeId, cafeCity }) => {
             {isLoading && <Loader />}
             {isAdded && <span>Review has been added</span>}
             {warning && <ErrorComp errorMessage={warning.message} />}
-            <button
+            <ButtonComponent
+              title={"Submit review"}
+              bgC={"var(--accent-color-lighter)"}
+              color={"var(--light-color)"}
+              hoverC={"var(--accent-color)"}
               type={"submit"}
-              className={style.submitButton}
               disabled={isLoading}
-            >
-              Submit review
-            </button>
+            />
             {isLoginBefore && <LoginBefore />}
           </div>
         </div>

@@ -10,6 +10,7 @@ import { setUser } from "@/src/servicies/redux/slices/user";
 import { setCookie } from "cookies-next";
 import { ErrorComp } from "@/src/components/warning/error";
 import { useFormInput } from "@/src/hooks/useFormInput";
+import { ButtonComponent } from "@/src/components/buttons/button";
 
 export default function Login() {
   const emailProps = useFormInput("");
@@ -56,9 +57,13 @@ export default function Login() {
           className={style.password}
         />
         {errorMessage && <ErrorComp errorMessage={errorMessage} />}
-        <button type={"submit"} className={style.button}>
-          Log in
-        </button>
+        <ButtonComponent
+          title={"Log in"}
+          bgC={"var(--accent-color-lighter)"}
+          color={"var(--light-color)"}
+          hoverC={"var(--accent-color)"}
+          type={"submit"}
+        />
       </form>
       <span>
         If you have not signed up yet, please

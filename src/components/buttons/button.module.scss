@@ -1,0 +1,14 @@
+.button {
+  min-width: calc(var(--index)*5);
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: calc(var(--index)*0.8);
+  padding: calc(var(--index)*.3) calc(var(--index)*.6);
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover{
+    background-color: var(--hover-color) !important;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 6px;
+  }
+}

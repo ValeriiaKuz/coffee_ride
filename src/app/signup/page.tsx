@@ -10,6 +10,7 @@ import { setCookie } from "cookies-next";
 import { ErrorComp } from "@/src/components/warning/error";
 import { useFormInput } from "@/src/hooks/useFormInput";
 import Link from "next/link";
+import { ButtonComponent } from "@/src/components/buttons/button";
 
 export default function SignUp() {
   const emailProps = useFormInput("");
@@ -75,9 +76,13 @@ export default function SignUp() {
           className={style.nickname}
         />
         {errorMessage && <ErrorComp errorMessage={errorMessage} />}
-        <button type={"submit"} className={style.button}>
-          Sign up
-        </button>
+        <ButtonComponent
+          title={"Sing up"}
+          bgC={"var(--accent-color-lighter)"}
+          color={"var(--light-color)"}
+          hoverC={"var(--accent-color)"}
+          type={"submit"}
+        />
         <span>
           If you have already signed up, please
           <Link href={"/login"} className={style.accent}>

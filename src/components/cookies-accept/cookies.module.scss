@@ -24,20 +24,7 @@
     outline: none;
     background-color: transparent;
     color: #10297d;
-    &.accept{
-      background-color: #10297d;
-      color: #fee6e6;
-      border-radius: 4px;
-      padding: calc(var(--index)*.2) calc(var(--index)*1.2);
-      &:hover{
-        opacity: 0.95;
-      }
-    }
-    &.deny{
-      border: 1px solid #10297d;
-      padding: calc(var(--index)*.2) calc(var(--index)*1.2);
-      border-radius: 4px;
-    }
+    font-size: calc(var(--index)*.6);
     &.close{
       position: absolute;
       top: 8px;

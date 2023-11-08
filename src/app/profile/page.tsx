@@ -6,6 +6,7 @@ import style from "./profile.module.scss";
 import { deleteCookie } from "cookies-next";
 import { User } from "firebase/auth";
 import FavouritesCafesProfile from "@/src/components/favourites-cafes-profile/favourites-cafes-profile";
+import { ButtonComponent } from "@/src/components/buttons/button";
 
 function Profile({ user }: { user: User }) {
   const onHandleLogOut = () => {
@@ -20,12 +21,18 @@ function Profile({ user }: { user: User }) {
   };
   return (
     <main className={style.wrapper}>
-      <span>Profile</span>
-      <span>{user.displayName || user.email}</span>
-      <button onClick={onHandleLogOut} className={style.logoutButton}>
-        Log out
-      </button>
-      <FavouritesCafesProfile userId={user.uid} />
+      <h1> {user.displayName || user.email}</h1>
+      <ButtonComponent
+        title={"Log out"}
+        onHandleClick={onHandleLogOut}
+        bgC={"var(--light-color)"}
+        color={"var(--accent-color)"}
+        hoverC={"var(--accent-color-lighter)"}
+      />
+      <h2>Favourites cafes</h2>
+      <div className={style.favWrapper}>
+        <FavouritesCafesProfile userId={user.uid} />
+      </div>
     </main>
   );
 }

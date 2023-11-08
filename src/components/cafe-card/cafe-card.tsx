@@ -29,10 +29,17 @@ const CafeCard: FC<cafePropType> = ({ cafe }) => {
         >
           ●
         </div>
-        {isOpen && <SharePopup />}
+        {isOpen && <SharePopup cafeID={cafe.id} setIsOpen={setIsOpen} />}
       </div>
       <div className={style.cafeInfo}>
-        <Link href={`${cafe.city}/${cafe.id}`} className={style.title}>
+        <Link
+          href={`${cafe.city}/${cafe.id}`}
+          className={
+            cafe.name.length > 12
+              ? `${style.title} ${style.small}`
+              : style.title
+          }
+        >
           {cafe.name}
         </Link>
         <div className={style.ratingWrapper}>

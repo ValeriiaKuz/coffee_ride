@@ -31,7 +31,7 @@ export const StarsRating: FC<StarsRatingProps> = ({
             className={classNames(
               style.button,
               ratingFromCustReview && style.review,
-              index <= (hover ?? rating ?? ratingFromCustReview)
+              index <= (ratingFromCustReview ?? hover ?? rating)
                 ? style.on
                 : style.off,
             )}

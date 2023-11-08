@@ -6,6 +6,7 @@ import style from "@/src/app/login/login-signup.module.scss";
 import Link from "next/link";
 import { ErrorComp } from "@/src/components/warning/error";
 import { useFormInput } from "@/src/hooks/useFormInput";
+import { ButtonComponent } from "@/src/components/buttons/button";
 
 export default function ForgotPassword() {
   const emailProps = useFormInput("");
@@ -35,9 +36,13 @@ export default function ForgotPassword() {
           className={style.email}
         />
         {errorMessage && <ErrorComp errorMessage={errorMessage} />}
-        <button type={"submit"} className={style.button}>
-          Send e-mail for reset
-        </button>
+        <ButtonComponent
+          title={"Send e-mail for reset"}
+          bgC={"var(--accent-color-lighter)"}
+          color={"var(--light-color)"}
+          hoverC={"var(--accent-color)"}
+          type={"submit"}
+        />
         {isSent && (
           <>
             <span>Password reset email sent! Please, check your email</span>
