@@ -5,6 +5,7 @@ import { ImageSlider } from "@/src/components/Image-slider/Image-slider";
 import style from "./cafe-selection.module.scss";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
 
 type cafeItemPropType = {
   cafe: CoffeePointType;
@@ -13,7 +14,7 @@ type cafeItemPropType = {
 export const CafeItem: FC<cafeItemPropType> = ({ cafe }) => {
   const left = useRef<HTMLDivElement | null>(null);
   const right = useRef<HTMLDivElement | null>(null);
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLAnchorElement | null>(null);
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({
@@ -50,7 +51,11 @@ export const CafeItem: FC<cafeItemPropType> = ({ cafe }) => {
     return () => ctx.revert();
   }, []);
   return (
-    <div className={style.itemWrapper} ref={wrapperRef}>
+    <Link
+      href={`${cafe.city}/${cafe.id}`}
+      className={style.itemWrapper}
+      ref={wrapperRef}
+    >
       <>
         <div className={style.sliderWrapper} ref={left}>
           <ImageSlider imagePreviews={cafe.previews} />
@@ -60,6 +65,6 @@ export const CafeItem: FC<cafeItemPropType> = ({ cafe }) => {
           <span>{cafe.city}</span>
         </div>
       </>
-    </div>
+    </Link>
   );
 };

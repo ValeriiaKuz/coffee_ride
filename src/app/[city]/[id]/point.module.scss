@@ -1,7 +1,6 @@
 .contentWrapper{
   padding-top: var(--header-height);
   min-height: 100vh;
-
 }
 .galleryWrapper{
   height: calc(70vh - var(--header-height));
@@ -40,7 +39,6 @@
       font-size:calc(var(--index)*1) ;
     }
   }
-
 }
 .ratingWrapper{
   display: flex;
@@ -50,9 +48,7 @@
   max-width: calc(var(--index)*10);
   min-height: calc(var(--index)*16);
   padding: calc(var(--index)*1.2);
-  //border: 1px solid salmon;
   font-size: calc(var(--index) * 0.8);
-
 }
 .mapWrapper{
   width: calc(var(--index)*20);

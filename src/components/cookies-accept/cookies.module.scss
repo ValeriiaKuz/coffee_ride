@@ -11,7 +11,7 @@
   padding: 25px;
   gap:calc(var(--index));
   background-color: white;
-  color: #10297d;
+  color: var(--second-color);
   border-radius: 4px;
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.4);
   z-index: 21;
@@ -23,7 +23,7 @@
     cursor: pointer;
     outline: none;
     background-color: transparent;
-    color: #10297d;
+    color: var(--second-color);
     font-size: calc(var(--index)*.6);
     &.close{
       position: absolute;

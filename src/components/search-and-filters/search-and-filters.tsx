@@ -13,8 +13,8 @@ type SearchAndFiltersPropsType = {
   setInputValue: (value: string) => void;
   filter: number;
   setFilter: (value: number) => void;
-  sort: string;
-  setSort: (value: string) => void;
+  sort: "rating" | "abc";
+  setSort: (value: "rating" | "abc") => void;
   points: CoffeePointType[];
 };
 export const SearchAndFilters: FC<SearchAndFiltersPropsType> = ({
@@ -36,7 +36,10 @@ export const SearchAndFilters: FC<SearchAndFiltersPropsType> = ({
   const isActiveFilter = (value: number, filter: number): boolean => {
     return value === filter;
   };
-  const isActiveSort = (value: string, sort: string): boolean => {
+  const isActiveSort = (
+    value: "rating" | "abc",
+    sort: "rating" | "abc",
+  ): boolean => {
     return value === sort;
   };
 

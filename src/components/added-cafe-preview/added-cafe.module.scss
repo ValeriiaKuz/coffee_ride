@@ -5,7 +5,7 @@
   gap: calc(var(--index)*.4);
   >p{
     font-size: calc(var(--index)*0.6);
-    color: #10297d;
+    color: var(--second-color);
     >span{
       font-size: calc(var(--index)*0.8);
       color: #040a23;

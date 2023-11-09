@@ -5,7 +5,7 @@
   align-items: center;
   height: calc(100vh - var(--header-height));
   .title{
-    color: rgba(12, 28, 75, 0.8);
+    color: var(--second-color);
     font-size: calc(var(--index)*2);
     margin-bottom:calc(var(--index)*2.5) ;
   }
@@ -18,23 +18,22 @@
     .email,.password,.nickname{
       width: calc(var(--index)*12);
       height: calc(var(--index)*1.5);
-      border:1px solid #fcb9b9;
+      border:1px solid var(--accent-color-lighter);
       border-radius: 8px;
       padding: 5px 10px;
       transition: ease 0.1s;
       &:focus{
-        outline: 2px solid #fcb9b9;
+        outline: 2px solid var(--accent-color-lighter);
       }
     }
   }
   >span{
     color: rgba(12, 28, 75, 0.7);
     .accent{
-      color: rgba(12, 28, 75, 1);
+      color: var(--second-color);
       transition: ease 0.5s;
       &:hover{
         text-decoration: underline;
-
       }
     }
     +span{

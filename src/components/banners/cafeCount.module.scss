@@ -18,7 +18,7 @@
     font-size: calc(var(--index) * 13);
     min-width: 55vw;
     padding-left: calc(var(--index) * 1) ;
-    color: #10297d;
+    color: var(--second-color);
     align-self: end;
     text-align: end;
     line-height: 0.8;

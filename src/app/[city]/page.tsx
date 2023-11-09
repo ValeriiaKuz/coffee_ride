@@ -38,7 +38,7 @@ export default function CoffeePointsOfCity({
   const [inputValue, setInputValue] = useState("");
   const [searchedPoints, setSearchedPoints] = useState(coffeePoints);
   const [filter, setFilter] = useState(0);
-  const [sort, setSort] = useState("rating");
+  const [sort, setSort] = useState<"rating" | "abc">("rating");
   const switchSort = (array: CoffeePointType[], sort: string) => {
     switch (sort) {
       case "rating":
@@ -100,9 +100,6 @@ export default function CoffeePointsOfCity({
             },
           };
         });
-        // замоканные данные
-        // const coffeePoints = coffeePointsMokData;
-
         dispatch(setCoffeePoints(coffeePoints));
       } catch (error) {
         console.error("Error fetching data:", error);

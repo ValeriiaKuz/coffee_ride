@@ -83,14 +83,14 @@ export default function SignUp() {
           hoverC={"var(--accent-color)"}
           type={"submit"}
         />
-        <span>
-          If you have already signed up, please
-          <Link href={"/login"} className={style.accent}>
-            {" "}
-            LOG IN
-          </Link>
-        </span>
       </form>
+      <span>
+        If you have already signed up, please
+        <Link href={"/login"} className={style.accent}>
+          {" "}
+          LOG IN
+        </Link>
+      </span>
     </main>
   );
 }
